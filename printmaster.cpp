@@ -2,7 +2,7 @@
 #include <string>
 
 #include "loging.cpp"
-Loging logTfile;
+static Loging logTfile;
 #include "fileDirector.cpp"
 
 using namespace std;
@@ -30,6 +30,7 @@ public:
 	void run(){
 		logTfile.addNewLine("testString");
 		FileDirector fd;
+		logTfile.setStateLoging(0);
 		fd.test();
 	}
 

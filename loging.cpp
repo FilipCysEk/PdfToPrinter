@@ -7,9 +7,10 @@ using namespace std;
 class Loging{
 private:
 	string logPath;
-	bool enabled = 1;
+	bool enabled;
 
 public:
+	Loging();
 	void setStateLoging(bool state){
 		enabled = state;
 	}
@@ -24,6 +25,9 @@ public:
 	}*/
 	void addNewLine(string);
 };
+Loging::Loging(){
+	enabled = 1;
+}
 
 void Loging::addNewLine(string text){
 	cout<<enabled << " - ";
