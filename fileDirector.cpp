@@ -35,6 +35,7 @@ FileDirector::FileDirector(string path)
 	prepareDirs();
 }
 
+//Prepare dir's, recusive remove printed dir and create dir again, empty.
 void FileDirector::prepareDirs(){
 	string temp = path + "/printed";
 	int dirErr = mkdir(temp.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
@@ -53,6 +54,7 @@ void FileDirector::prepareDirs(){
 	}
 }
 
+//Scaning folder with pdf's, copying in to printed and pass vector with They's name's
 vector<string> FileDirector::scanPrintedDir(){
 	if((pdfsDir = opendir(path.c_str())) != NULL){
 		vector<string> pdfList;
@@ -92,6 +94,7 @@ bool FileDirector::isPdf(char* fname){
 	return false;
 }
 
+// changing name when exist in printed folder file with this name
 string FileDirector::repetableFileName(string name){
 	string namecut[3];
 	int len, i;
